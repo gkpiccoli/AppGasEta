@@ -67,7 +67,7 @@
                     android:ems="10"
                     android:hint="@string/txt_hint_edit_etanol"
                     android:importantForAutofill="no"
-                    android:inputType="textPersonName" />
+                    android:inputType="numberDecimal" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

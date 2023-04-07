@@ -28,6 +28,7 @@ public class GasEtaActivity extends AppCompatActivity {
 
     double precoGasolina;
     double precoEtanol;
+    String recomendacao;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,16 +56,33 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 boolean isDadosOk = true;
 
-                if(TextUtils.isEmpty(editEtanol.getText())){
+                if (TextUtils.isEmpty(editEtanol.getText())) {
                     editGasolina.setError("* Campo Obrigatório");
                     editGasolina.requestFocus();
                     isDadosOk = false;
                 }
 
-                if(TextUtils.isEmpty(editGasolina.getText())){
+                if (TextUtils.isEmpty(editGasolina.getText())) {
                     editEtanol.setError("* Campo Obrigatório");
                     editEtanol.requestFocus();
                     isDadosOk = false;
+                }
+
+                if (isDadosOk) {
+
+                    precoGasolina = Double.parseDouble(editGasolina.getText().toString());
+                    precoEtanol = Double.parseDouble(editEtanol.getText().toString());
+
+                    recomendacao = UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol);
+
+                    txtResultado.setText(recomendacao);
+
+                } else {
+
+                    Toast.makeText(GasEtaActivity.this, "Atenção: digite os campos obrigatórios.",
+                            Toast.LENGTH_LONG).show();
+
+
                 }
 
             }
