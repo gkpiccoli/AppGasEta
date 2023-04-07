@@ -1,6 +1,7 @@
 package devandroid.gkp.appgaseta.view;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,9 @@ public class GasEtaActivity extends AppCompatActivity {
     Button btnSalvar;
     Button btnFinalizar;
 
+    double precoGasolina;
+    double precoEtanol;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,20 @@ public class GasEtaActivity extends AppCompatActivity {
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                boolean isDadosOk = true;
+
+                if(TextUtils.isEmpty(editEtanol.getText())){
+                    editGasolina.setError("* Campo Obrigatório");
+                    editGasolina.requestFocus();
+                    isDadosOk = false;
+                }
+
+                if(TextUtils.isEmpty(editGasolina.getText())){
+                    editEtanol.setError("* Campo Obrigatório");
+                    editEtanol.requestFocus();
+                    isDadosOk = false;
+                }
 
             }
         });
