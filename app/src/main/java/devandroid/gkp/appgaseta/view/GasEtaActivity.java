@@ -1,6 +1,9 @@
 package devandroid.gkp.appgaseta.view;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -11,7 +14,15 @@ import devandroid.gkp.appgaseta.apoio.UtilGasEta;
 
 public class GasEtaActivity extends AppCompatActivity {
 
-   // UtilGasEta utilGasEta = new UtilGasEta();
+   EditText editGasolina;
+   EditText editEtanol;
+
+   TextView txtResultado;
+
+   Button btnCalcular;
+   Button btnLimpar;
+   Button btnSalvar;
+   Button btnFinalizar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,9 +30,17 @@ public class GasEtaActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_gaseta);
 
-       // utilGasEta.metodoNaoEstatico();
+        editGasolina = findViewById(R.id.editGasolina);
+        editEtanol = findViewById(R.id.editEtanol);
 
-        // UtilGasEta.metodoEstatico();
+        txtResultado = findViewById(R.id.txtResultado);
+
+        btnCalcular = findViewById(R.id.btnCalcular);
+        btnLimpar = findViewById(R.id.btnLimpar);
+        btnSalvar = findViewById(R.id.btnSalvar);
+        btnFinalizar = findViewById(R.id.btnFinalizar);
+
+
 
         Toast.makeText(GasEtaActivity.this, UtilGasEta.calcularMelhorOpcao(5.55,3.19) ,
                 Toast.LENGTH_LONG).show();
