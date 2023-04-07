@@ -31,6 +31,8 @@ public class GasEtaActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_gaseta);
 
+        // findview associa os métodos aos campos
+
         editGasolina = findViewById(R.id.editGasolina);
         editEtanol = findViewById(R.id.editEtanol);
 
@@ -40,6 +42,8 @@ public class GasEtaActivity extends AppCompatActivity {
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
+
+        // setonclick associa os botoes aos cliques
 
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +69,8 @@ public class GasEtaActivity extends AppCompatActivity {
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(GasEtaActivity.this, "Boa Economia!!!", Toast.LENGTH_LONG).show();
+                finish();
 
             }
         });
