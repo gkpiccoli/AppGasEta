@@ -15,15 +15,15 @@ import devandroid.gkp.appgaseta.apoio.UtilGasEta;
 
 public class GasEtaActivity extends AppCompatActivity {
 
-   EditText editGasolina;
-   EditText editEtanol;
+    EditText editGasolina;
+    EditText editEtanol;
 
-   TextView txtResultado;
+    TextView txtResultado;
 
-   Button btnCalcular;
-   Button btnLimpar;
-   Button btnSalvar;
-   Button btnFinalizar;
+    Button btnCalcular;
+    Button btnLimpar;
+    Button btnSalvar;
+    Button btnFinalizar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,6 +56,9 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                editEtanol.setText("");
+                editGasolina.setText("");
+
             }
         });
 
@@ -76,8 +79,7 @@ public class GasEtaActivity extends AppCompatActivity {
         });
 
 
-
-        Toast.makeText(GasEtaActivity.this, UtilGasEta.calcularMelhorOpcao(5.55,3.19) ,
+        Toast.makeText(GasEtaActivity.this, UtilGasEta.calcularMelhorOpcao(5.55, 3.19),
                 Toast.LENGTH_LONG).show();
     }
 }
