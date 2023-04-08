@@ -13,9 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import devandroid.gkp.appgaseta.R;
 import devandroid.gkp.appgaseta.apoio.UtilGasEta;
+import devandroid.gkp.appgaseta.controller.CombustivelController;
 import devandroid.gkp.appgaseta.model.Combustivel;
 
 public class GasEtaActivity extends AppCompatActivity {
+
+    CombustivelController controller;
 
     Combustivel combustivelGasolina;
     Combustivel combustivelEtanol;
@@ -39,6 +42,8 @@ public class GasEtaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_gaseta);
+
+        controller = new CombustivelController(GasEtaActivity.this);
 
         // findview associa os métodos aos campos
 
@@ -101,6 +106,8 @@ public class GasEtaActivity extends AppCompatActivity {
                 editGasolina.setText("");
                 btnSalvar.setEnabled(false);
 
+                controller.limpar();
+
 
             }
         });
@@ -109,7 +116,6 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //TODO: Desabilitar o botão Salvar
 
                 combustivelGasolina = new Combustivel();
                 combustivelEtanol = new Combustivel();
@@ -122,6 +128,9 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 combustivelGasolina.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol));
                 combustivelEtanol.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol));
+
+                controller.salvar(combustivelGasolina);
+                controller.salvar(combustivelEtanol);
 
                 int parada = 0;
 
