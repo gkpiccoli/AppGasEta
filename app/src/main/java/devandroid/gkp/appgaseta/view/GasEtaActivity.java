@@ -80,12 +80,13 @@ public class GasEtaActivity extends AppCompatActivity {
                     recomendacao = UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol);
 
                     txtResultado.setText(recomendacao);
+                    btnSalvar.setEnabled(true);
 
                 } else {
 
                     Toast.makeText(GasEtaActivity.this, "Atenção: digite os campos obrigatórios.",
                             Toast.LENGTH_LONG).show();
-
+                    btnSalvar.setEnabled(false);
 
                 }
 
@@ -98,6 +99,8 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 editEtanol.setText("");
                 editGasolina.setText("");
+                btnSalvar.setEnabled(false);
+
 
             }
         });
@@ -117,8 +120,8 @@ public class GasEtaActivity extends AppCompatActivity {
                 combustivelEtanol.setNomeDoCombustivel("Etanol");
                 combustivelEtanol.setPrecoDoCombustivel(precoEtanol);
 
-                combustivelGasolina.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
-                combustivelEtanol.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
+                combustivelGasolina.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol));
+                combustivelEtanol.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol));
 
                 int parada = 0;
 
