@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import devandroid.gkp.appgaseta.R;
+import devandroid.gkp.appgaseta.database.GasEtaDB;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -25,7 +26,11 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent telaPrincipal = new Intent(SplashActivity.this, GasEtaActivity.class);
+                GasEtaDB db = new GasEtaDB(SplashActivity.this);
+
+                Intent telaPrincipal = new Intent(
+                        SplashActivity.this,
+                        GasEtaActivity.class);
                 startActivity(telaPrincipal);
                 finish();
 
